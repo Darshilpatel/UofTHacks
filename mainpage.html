@@ -1,0 +1,424 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "user_info";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT nameFinal, idFinal, imageFinal, emailFinal FROM google_related";
+$result = mysqli_query($conn, $sql);
+
+
+mysqli_close($conn);
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Main Page HTML </title>
+    <link href="css/blog-home.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <!--CUSTOM -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Oswald|Open+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href="css/custom.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav menu-icons">
+            <li class = "icon"><a data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle fa-2x" style="color:#00B8A9"></i> </a></li>
+            <li id = "profile-picture" class = "icon"><a ><img src = "images/profile_picture.PNG" class = "img-circle profile_picture  profile2"></a></li>
+            <li class =  "icon"><a><i class="fa fa-home fa-2x" style="color:#00B8A9"></i></a></li>
+          </ul>
+          <form class = "light">
+            <span><input type="text" class="search rounded" placeholder= "&#xf002; Search..." style="font-family:Oswald, FontAwesome"></span>
+          </form>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <img class="img-circle img-responsive img-center profile" src="" alt="">
+                    <h2 id= "namePlace" class="profile-center nameInput"></h3>    
+                    <h4 class="profile-center">University of Toronto<i class="fa fa-flag profile-flag"></i></h4>
+                    <h5 id = "emailAdd" class = "profile-center">Email</h5>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                      aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                        <span class="sr-only">70% Complete</span>
+                      </div>
+                    </div>
+                    <div class="profile-center">
+                    <img src="images/badge2.png" width="42"><img src="images/badge2.png" width="42"><img src="images/badge2.png" width="42"></div>
+                    
+                    <!-- /.input-group -->
+                </div>
+
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <h4>Blog Categories</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Category Name</a>
+                                </li>
+                                <li><a href="#">Category Name</a>
+                                </li>
+                                <li><a href="#">Category Name</a>
+                                </li>
+                                <li><a href="#">Category Name</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.col-lg-6 -->
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Category Name</a>
+                                </li>
+                                <li><a href="#">Category Name</a>
+                                </li>
+                                <li><a href="#">Category Name</a>
+                                </li>
+                                <li><a href="#">Category Name</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.col-lg-6 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Side Widget Well</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                </div>
+                <img class="profile-center" src="images/owl.png" width="200px" />
+
+            </div>
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h3 class="page-header">
+                    Urgent questions of the day
+                    
+                </h3>
+
+                <!-- First Blog Post -->
+                <div class="featured-q" >
+                    <h2><span class="redtext">
+                        <a href="#" id = "firstTitle" name="question0"></a></span>
+                    </h2>
+                    <p class="lead">
+                         <a href="index.php" id = "firstName" name="question0"></a>
+                    </p>
+                    <p id = "firstDate" name="question0"><span class="glyphicon glyphicon-time"></span> </p>
+                    
+                    <p id = "firstText" name="question0"></p>
+                    <a class="btn btn-primary btn-red" href="#">Give Answer <span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+
+                <hr>
+                <!-- Second Blog Post -->
+                <h2>
+                    <a href="#" name = "question1">What is a blackhole?</a>
+                </h2>
+                <p class="lead">
+                    by <a href="index.php" name = "question1">Jessica Merabeli</a>
+                </p>
+                <p><span class="glyphicon glyphicon-time" name = "question1"></span> Posted on Jan 8, 2016 at 10:00 PM</p>
+                
+                <p name = "question1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
+                <a class="btn btn-primary btn-red" href="#">Give Answer  <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+</hr>
+
+                <hr>
+                <!-- Third Blog Post -->
+                <h2>
+                    <a href="#" name = "question2">What is a blackhole?</a>
+                </h2>
+                <p class="lead">
+                    by <a href="index.php" name = "question2">Jessica Merabeli</a>
+                </p>
+                <p name = "question2"><span class="glyphicon glyphicon-time"></span> Posted on Jan 8, 2016 at 10:00 PM</p>
+                
+                <p name = "question2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
+                <a class="btn btn-primary" href="#">Give Answer <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+                <!-- Fifth Blog Post -->
+                <h2>
+                    <a href="#" name = "question3">What is a blackhole?</a>
+                </h2>
+                <p class="lead">
+                    by <a href="index.php" name = "question3">Jessica Merabeli</a>
+                </p>
+                <p name = "question3"><span class="glyphicon glyphicon-time"></span> Posted on Jan 8, 2016 at 10:00 PM</p>
+                
+                <p name = "question3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
+                <a class="btn btn-primary" href="#">Give Answer <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+
+                 
+
+                
+
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="previous">
+                        <a href="#">&larr; Older</a>
+                    </li>
+                    <li class="next">
+                        <a href="#">Newer &rarr;</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+
+<!-- Question Modal (triggered in the plus button up top) -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Ask a student!</h4>
+      </div>
+      <div class="modal-body">
+        <form action = "" method="post" id="post-form" class = "ajax">
+  <div class="form-inline form-group">
+  <div class="form-group">
+    <label for="exampleInputName2">Name</label>
+    <input type="text" class="form-control" name="username" placeholder="Jane Doe">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">Question Title</label>
+    <input type="title" class="form-control" name="title" placeholder="What is a black hole?">
+  </div>
+  
+</div>
+  <fieldset class="form-group">
+    <label for="exampleTextarea">Post question in detail:</label>
+    <textarea id="post-text-area" class="form-control" name="text" rows="3"></textarea>
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="exampleInputFile">File/image attachment</label>
+    <input type="file" class="form-control-file" name="file">
+    <small class="text-muted">Attach any images, screenshots or documents to better explain what your problem is.</small>
+  </fieldset>
+  <div class="radio">
+    <label>
+      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+      Urgent (1 - 2hr response)
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+      Normal
+    </label>
+  </div>
+  
+  `
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit"  class="btn btn-primary" value = "insert" id = "submitButton">Submit question</button>
+
+
+      </div>
+</form>
+
+    </div>
+  </div>
+</div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Techle 2016</p>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript">
+    $(window).load(function(){
+        $("[data-toggle]").click(function() {
+          var toggle_el = $(this).data("toggle");
+          $(toggle_el).toggleClass("open-sidebar");
+        });
+
+        // we're going to search for the user id in the URL
+        var url = window.location.href;
+        var userId = url.substring(url.indexOf("id=") + 3);
+
+        $.ajax({
+            url: "getProfile.php",
+            type:'post',
+            data: { userId: userId },
+            success: function(data) {
+                data = JSON.parse(data);
+                var userProfileData = data[0];
+
+                // render stuff using feedback
+                console.log(userProfileData);
+                $("img.profile").attr("src", userProfileData.image);
+                $("img.profile_picture").attr("src", userProfileData.image);
+                document.getElementById("namePlace").innerHTML = userProfileData.name;
+                document.getElementById("emailAdd").innerHTML = userProfileData.email;
+
+
+            }
+        });
+    });
+
+
+
+
+  </script>
+
+<script type="text/javascript" src="main.js"></script>
+
+  <script type="text/javascript">
+
+
+
+
+$.ajax({
+    url:'getMostRecentPosts.php',
+    type:'GET',
+    data:{
+        username:name
+        
+        
+     },
+    success:function(data){
+        data = JSON.parse(data);
+    
+       
+   
+                document.getElementsByName("question0")[0].innerHTML = data[1].title;
+                document.getElementsByName("question0")[1].innerHTML = data[1].name;
+                document.getElementsByName("question0")[2].innerHTML = data[1].date;
+                document.getElementsByName("question0")[3].innerHTML = data[1].text;
+        
+        
+                document.getElementsByName("question1")[0].innerHTML = data[2].title;
+                document.getElementsByName("question1")[1].innerHTML = data[2].name;
+                document.getElementsByName("question1")[2].innerHTML = data[2].date;
+                document.getElementsByName("question1")[3].innerHTML = data[2].text;
+
+                document.getElementsByName("question2")[0].innerHTML = data[3].title;
+                document.getElementsByName("question2")[1].innerHTML = data[3].name;
+                document.getElementsByName("question2")[2].innerHTML = data[3].date;
+                document.getElementsByName("question2")[3].innerHTML = data[3].text;
+
+                document.getElementsByName("question3")[0].innerHTML = data[4].title;
+                document.getElementsByName("question3")[1].innerHTML = data[4].name;
+                document.getElementsByName("question3")[2].innerHTML = data[4].date;
+                document.getElementsByName("question3")[3].innerHTML = data[4].text;
+
+            
+        
+       
+        
+    },
+    error:function(err){
+        console.log(err);
+    }
+});
+
+
+  </script>
+
+
+  
+
+</body>
+
+
+
+
+
+</html>

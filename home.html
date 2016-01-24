@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+</head>
+<body>
+<input type="submit" class="button" name="insert" value="insert" />
+<input type="submit" class="button" name="select" value="select" />
+
+<h1>Home page</h1>
+</body>
+
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+    $('.button').click(function(){
+        var clickBtnValue = $(this).val();
+        var ajaxurl = 'home.php',
+        data =  {'action': clickBtnValue};
+        $.post(ajaxurl, data, function (response) {
+            // Response div goes here.
+            alert("action performed successfully");
+        });
+    });
+
+});
+
+
+</script>
+
+
+</html>
